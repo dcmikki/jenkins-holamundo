@@ -11,4 +11,4 @@ RUN 	/usr/bin/pip install --upgrade -r /opt/app/requirements.txt
 COPY	docker-entrypoint.sh /
 
 ENTRYPOINT 	"/docker-entrypoint.sh"
-
+EXPOSE	5000
