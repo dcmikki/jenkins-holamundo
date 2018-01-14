@@ -1,0 +1,25 @@
+
+#!/bin/bash
+echo ' hola mundo'
+./scripts/hola_ansible.sh 
+
+echo 'instalar y activar entorno virtual'
+virtualenv entorno_virtual
+source entorno_virtual/bin/activate
+
+echo 'instalar requirements'
+/usr/local/bin/pip install -r requirements.txt
+
+echo 'ejecutando aplicacion ..'
+/usr/bin/python src/main.py &
+
+echo ' testeando la aplicacion'
+cd src && pytest && cd ..
+
+echo ' Construyendo docker imagen'
+docker build -t apptest:latest .
+
+echo ' Enviando la imagen al dockerhub'
+docker tag apptest:latest dcmikki/apptest:latest
+docker push dcmikki/apptest:latest
+docker rmi apptest:latest && docker rmi dcmikki/apptest:latest && docker rmi ubuntu:latest
