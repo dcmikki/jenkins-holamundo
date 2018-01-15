@@ -11,7 +11,7 @@ pipeline {
         stage('ANSIBLE Features Hosts (JSON)') {
             steps {
                 sh '''
-                        ansible all -m ping && anssible all -m setup
+                        ansible all -m ping && ansible all -m setup
                         bash -c "sleep 7"
                 '''
             }
