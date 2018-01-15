@@ -13,7 +13,6 @@ pipeline {
                 sh '''
                         ansible all -m ping
                         bash -c "sleep 7"
-                        //ansible local -m setup
                 '''
             }
         }
