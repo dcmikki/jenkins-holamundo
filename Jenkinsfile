@@ -10,11 +10,13 @@ pipeline {
         }
         stage('ANSIBLE Feautes Hosts (JSON)') {
             steps {
-                sh 'ansible all -m ping'
                 sh '''
+                        ansible all -m ping
                         bash -c "sleep 7"
+                        ansible local -m setup
+                        bash -c "sleep 7"
+                        ansible rackspace -m setup
                 '''
-                sh 'ansible all -m setup'
             }
         }
         stage('ANSIBLE Update Jenkins Master and Slave') {
