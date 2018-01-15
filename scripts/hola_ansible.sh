@@ -1,3 +1,3 @@
 #!/bin/bash
-ansible localhost -m setup
+ansible all -m setup
 sleep 5
