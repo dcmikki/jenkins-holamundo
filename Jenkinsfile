@@ -12,6 +12,7 @@ pipeline {
             steps {
                 sh '''
                         bash -c "./scripts/hola_ansible.sh"
+                        ansible localhost -m ping
                 '''
             }
         }
