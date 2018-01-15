@@ -11,8 +11,9 @@ pipeline {
         stage('ANSIBLE Feautes Hosts (JSON)') {
             steps {
                 sh '''
-                        bash -c "./scripts/hola_ansible.sh"
                         ansible all -m ping
+                        sleep 7
+                        ansible all -m setup
                 '''
             }
         }
