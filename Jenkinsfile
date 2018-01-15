@@ -4,17 +4,12 @@
 pipeline {
     agent any
     stages {
-        //stage('Git Checkout') {
-        //    steps {
-        //        sh 'echo HOLA MUNDO'
-        //   }
-        //}
-        stage('Saludos') {
+        stage('SALUDOS') {
             steps {
                 sh 'bash -c ./scripts/hola.sh'
             }
         }
-        stage('Ansible Module') {
+        stage('ANSIBLE MODULE') {
             steps {
                 sh 'bash -c ./scripts/hola_ansible.sh'
             }
