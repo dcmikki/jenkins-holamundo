@@ -3,12 +3,16 @@ pipeline {
     stages {
         stage('SALUDOS') {
             steps {
-                sh 'bash -c ./scripts/hola.sh'
+                sh '''
+                        bash -c "./scripts/hola.sh"
+                '''
             }
         }
-        stage('ANSIBLE MODULE') {
+        stage('ANSIBLE localhost Jenkins Master') {
             steps {
-                sh 'bash -c ./scripts/hola_ansible.sh'
+                sh '''
+                        bash -c "./scripts/hola_ansible.sh"
+                '''
             }
         }
     }
