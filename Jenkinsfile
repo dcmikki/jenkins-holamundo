@@ -8,11 +8,18 @@ pipeline {
                 '''
             }
         }
-        stage('ANSIBLE localhost Jenkins Master') {
+        stage('ANSIBLE Hosts') {
             steps {
                 sh '''
                         bash -c "./scripts/hola_ansible.sh"
-                        ansible localhost -m ping
+                        ansible all -m ping
+                '''
+            }
+        }
+        stage('ANSIBLE Update Jenkins Master and Slave') {
+            steps {
+                sh '''
+                        ansible-playbook fullupdate-upgrade.yml
                 '''
             }
         }
