@@ -1,0 +1,17 @@
+- hosts: all
+  user: jenkins
+  become: yes
+  connection: ssh
+  gather_facts: no
+  tasks:
+  - name: Run the equivalent of "apt-get update"
+    apt: update_cache=yes
+
+  - name: Run the equivalent of "apt-get dist-upgrade"
+    apt: upgrade=dist
+
+  - name: like apt-get autoclean
+    command: apt-get autoclean
+
+  - name: like  apt-get autoremove. eliminate obsolete packages and old dependencies
+    command: apt-get autoremove -y
