@@ -8,11 +8,17 @@ pipeline {
                 '''
             }
         }
-        stage('ANSIBLE Hosts Setup (JSON)') {
+        stage('ANSIBLE Hosts Ping)') {
             steps {
                 sh '''
                         ansible all -m ping
-                        bash -c "sleep 7"
+                        bash -c "sleep 5"
+                '''
+            }
+        }
+        stage('ANSIBLE Hosts Setup (JSON)') {
+            steps {
+                sh '''
                         ansible all -m setup
                 '''
             }
