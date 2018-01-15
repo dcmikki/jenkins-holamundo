@@ -8,19 +8,19 @@ pipeline {
                 '''
             }
         }
-        stage('ANSIBLE Features Hosts (JSON)') {
+        stage('ANSIBLE Hosts Ping') {
             steps {
                 sh '''
-                        ansible localhost -m setup
+                        ansible all -m ping
                         bash -c "sleep 7"
-                        ansible rackspace -m setup
                 '''
             }
         }
-        stage('ANSIBLE Update Jenkins Master and Slave') {
+        stage('ANSIBLE Features Hosts (JSON)') {
             steps {
                 sh '''
-                        ansible-playbook fullupdate-upgrade.yml
+                        ansible all -m setup
+                        bash -c "sleep 10"
                 '''
             }
         }
