@@ -8,7 +8,7 @@ pipeline {
                 '''
             }
         }
-        stage('ANSIBLE Feautes Hosts (JSON)') {
+        stage('ANSIBLE Features Hosts (JSON)') {
             steps {
                 sh '''
                         ansible all -m ping
