@@ -8,7 +8,7 @@ pipeline {
                 '''
             }
         }
-        stage('ANSIBLE Hosts') {
+        stage('ANSIBLE Module Host Output JSON') {
             steps {
                 sh '''
                         bash -c "./scripts/hola_ansible.sh"
