@@ -11,8 +11,9 @@ pipeline {
         stage('ANSIBLE Features Hosts (JSON)') {
             steps {
                 sh '''
-                        ansible all -m setup
+                        ansible localhost -m setup
                         bash -c "sleep 7"
+                        ansible rackspace -m setup
                 '''
             }
         }
