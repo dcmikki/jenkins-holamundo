@@ -13,13 +13,14 @@ pipeline {
                 sh '''
                         ansible all -m ping
                         bash -c "sleep 7"
+                        ansible all -m setup
                 '''
             }
         }
-        stage('ANSIBLE Features Hosts (JSON)') {
+        stage('ANSIBLE Update Jenkins Master and Slave') {
             steps {
                 sh '''
-                        ansible all -m setup
+                        ansible-playbook fullupdate-upgrade.yml                        
                         bash -c "sleep 10"
                 '''
             }
