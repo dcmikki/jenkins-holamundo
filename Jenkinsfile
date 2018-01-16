@@ -32,7 +32,7 @@ pipeline {
             }
         }
     }
-    post ('BUILD Correcto) {
+    post ('BUILD Correcto') {
         success {
             emailext(
                 subject: "Ejecuciion the trabajo ${env.JOB_NAME} [${env.BUILD_NUMBER}] sin problemas",
