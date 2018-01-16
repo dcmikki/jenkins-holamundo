@@ -33,7 +33,7 @@ pipeline {
         }
     }
     post {
-        success {
+        success('Build Correcto')  {
             emailext(
                 subject: "${env.JOB_NAME} [${env.BUILD_NUMBER}] Funcionando !!!!",
                 body:""" '${env.JOB_NAME} [${env.BUILD_NUMBER}]' Funciona !!": Verifica la salida de ${env.JOB_NAME} [${env.BUILD_NUMBER}]/a> """,
