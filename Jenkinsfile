@@ -32,10 +32,10 @@ pipeline {
             }
         }
     }
-    post ('BUILD Correcto') {
+    post {
         success {
             emailext(
-                subject: "Ejecuciion the trabajo ${env.JOB_NAME} [${env.BUILD_NUMBER}] sin problemas",
+                subject: "Ejecucion del trabajo '${env.JOB_NAME}'-[${env.BUILD_NUMBER}] sin problemas",
                 body:""" '${env.JOB_NAME}, el build numero '[${env.BUILD_NUMBER}]'' se ha ejecutado correctamente": Verifica la salida de ${env.JOB_NAME} [${env.BUILD_NUMBER}] para consulta """,
                 to: "diegoytess@gmail.com"
             ) 
