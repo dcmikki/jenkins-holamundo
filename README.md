@@ -1,5 +1,5 @@
 # jenkins-holamundo
-Divido este projecto en dos para probarla sintaxis de los ficheros Jenkinsfile
+Divido este projecto en dos para probarla sintaxis de los ficheros Jenkinsfile.
 
 PROJECTO I
     1) Descargar repositorio de git
